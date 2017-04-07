@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="vehicle_prof" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c2576637-2adc-4929-a72b-87ac5d134067">
+	<property name="template.type" value="columnar"/>
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#000000" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<queryString>
+		<![CDATA[SELECT `vehicle`.vehicleID,`vehicle`.type,`vehicle`.model,`vehicle`.chassicNo,`vehicle`.colour,`vehicle`.transmissionType,`vehicle`.fuelType,`vehicle`.GPS,`vehicle`.RegNum,DATE_FORMAT(`vehicle`.RegDate,'%Y-%m-%d'),`vehicle`.InsNum,`vehicle`.Ins_Company,DATE_FORMAT(`vehicle`.InsDate,'%Y-%m-%d')
+ FROM vehicle]]>
+	</queryString>
+	<field name="vehicleID" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="type" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="model" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="chassicNo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="EngineCapacity" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="colour" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="transmissionType" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fuelType" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="GPS" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="RegNum" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="DATE_FORMAT(`vehicle`.RegDate,&apos;%Y-%m-%d&apos;)" class="java.lang.String"/>
+	<field name="InsNum" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Ins_Company" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="DATE_FORMAT(`vehicle`.InsDate,&apos;%Y-%m-%d&apos;)" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="132" splitType="Stretch">
+			<staticText>
+				<reportElement style="Title" mode="Opaque" x="4" y="31" width="549" height="73" forecolor="#000000" backcolor="#FFFFFF" uuid="cf93efad-f84d-45ff-af1b-f639d20cca89"/>
+				<textElement textAlignment="Center" rotation="None">
+					<font fontName="Times New Roman" size="40" isBold="true" isItalic="false" isUnderline="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Vehicle  Details]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="618" splitType="Stretch">
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="40" y="37" width="199" height="25" forecolor="#000000" uuid="7251465c-c420-44c0-9b66-bb9c0b0edfe4"/>
+				<textElement textAlignment="Right">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Vehicle ID]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="279" y="37" width="249" height="25" uuid="4e17838a-b8f7-4240-b4a6-12b7af290504"/>
+				<textElement textAlignment="Left">
+					<font size="16" isBold="false" pdfFontName="Times-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vehicleID}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="40" y="77" width="199" height="25" forecolor="#000000" uuid="9386aae0-add6-4f4c-a672-7502daf3ff32"/>
+				<textElement textAlignment="Right">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Type]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="279" y="77" width="249" height="25" uuid="a16112dc-28d1-4a13-9673-2e84930b0d9a"/>
+				<textElement textAlignment="Left">
+					<font size="16" isBold="false" pdfFontName="Times-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{type}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="40" y="117" width="199" height="25" forecolor="#000000" uuid="abb40388-e7c3-4817-b6f4-6531f5b7827f"/>
+				<textElement textAlignment="Right">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Model]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="279" y="117" width="249" height="25" uuid="8e7ee460-d766-4812-9a4b-d751c88cbd54"/>
+				<textElement textAlignment="Left">
+					<font size="16" isBold="false" pdfFontName="Times-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{model}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="40" y="157" width="199" height="25" forecolor="#000000" uuid="992895c0-2446-49ab-b5a1-998e45192aa3"/>
+				<textElement textAlignment="Right">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Chassic Number]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="279" y="157" width="249" height="25" uuid="722368be-1419-4176-a79a-0ca27582f118"/>
+				<textElement textAlignment="Left">
+					<font size="16" isBold="false" pdfFontName="Times-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{chassicNo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="40" y="193" width="199" height="25" forecolor="#000000" uuid="8d72cf3c-d0f4-45a6-abf6-ec8e6d815d6e"/>
+				<textElement textAlignment="Right">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Colour]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="279" y="193" width="249" height="25" uuid="6457dab1-c6ae-4927-b12b-432afc719e46"/>
+				<textElement textAlignment="Left">
+					<font size="16" isBold="false" pdfFontName="Times-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{colour}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="40" y="233" width="199" height="25" forecolor="#000000" uuid="2350c3bb-eb2f-4e24-9605-e468d2376697"/>
+				<textElement textAlignment="Right">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Transmission Type]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="279" y="233" width="249" height="25" uuid="8b820a42-7efb-488e-809d-ceb6cc9f207b"/>
+				<textElement textAlignment="Left">
+					<font size="16" isBold="false" pdfFontName="Times-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{transmissionType}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="40" y="273" width="199" height="25" forecolor="#000000" uuid="0d80aaa7-972d-4e4f-95e9-a7099a75d46d"/>
+				<textElement textAlignment="Right">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fuel Type]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="279" y="273" width="249" height="25" uuid="c1260c2b-c2ed-4e03-ae3b-24fa8b66fdd2"/>
+				<textElement textAlignment="Left">
+					<font size="16" isBold="false" pdfFontName="Times-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fuelType}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="40" y="313" width="199" height="25" forecolor="#000000" uuid="12ab9e93-d258-4535-a401-ecd1d77ed3d5"/>
+				<textElement textAlignment="Right">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[GPS Number]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="279" y="313" width="249" height="25" uuid="e54e7f4c-94b1-4b2a-b1a3-f905ad2a9b0e"/>
+				<textElement textAlignment="Left">
+					<font size="16" isBold="false" pdfFontName="Times-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{GPS}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="40" y="353" width="199" height="25" forecolor="#000000" uuid="a16279da-bcea-43e7-9739-ce918bb6ead1"/>
+				<textElement textAlignment="Right">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Registration Number]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="279" y="353" width="249" height="25" uuid="46784435-a4c9-4201-b569-6d173744238c"/>
+				<textElement textAlignment="Left">
+					<font size="16" isBold="false" pdfFontName="Times-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{RegNum}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="40" y="393" width="199" height="25" forecolor="#000000" uuid="2f8ec197-1855-450b-91d4-bfbfa34cbd8f"/>
+				<textElement textAlignment="Right">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Registered Date]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="279" y="393" width="249" height="25" uuid="ca51b238-7100-4aee-816c-47714325b7a8"/>
+				<textElement textAlignment="Left">
+					<font size="16" isBold="false" pdfFontName="Times-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DATE_FORMAT(`vehicle`.RegDate,'%Y-%m-%d')}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="40" y="433" width="199" height="25" forecolor="#000000" uuid="13f537af-fb3b-444d-a9ad-ea896808c1e1"/>
+				<textElement textAlignment="Right">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Insurance Number]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="279" y="433" width="249" height="25" uuid="03bdc7c8-7b23-43f1-b269-eca2f9134c3f"/>
+				<textElement textAlignment="Left">
+					<font size="16" isBold="false" pdfFontName="Times-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{InsNum}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="40" y="473" width="199" height="25" forecolor="#000000" uuid="39c499b3-58b0-4ea7-9438-e4e94d9df286"/>
+				<textElement textAlignment="Right">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Insured Company]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="279" y="473" width="249" height="25" uuid="63eb15ac-47c1-46dd-a77d-bba251655698"/>
+				<textElement textAlignment="Left">
+					<font size="16" isBold="false" pdfFontName="Times-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Ins_Company}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="40" y="513" width="199" height="25" forecolor="#000000" uuid="f2ad2673-14a5-479f-b14b-02761329fef6"/>
+				<textElement textAlignment="Right">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Insured Date]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="279" y="513" width="249" height="25" uuid="76b8f99b-0fe1-4600-92ad-f00a66db9356"/>
+				<textElement textAlignment="Left">
+					<font size="16" isBold="false" pdfFontName="Times-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DATE_FORMAT(`vehicle`.InsDate,'%Y-%m-%d')}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="36" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="21c9b88d-73f1-4673-aeca-56abed6799ff"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="13" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="2" y="0" width="555" height="13" forecolor="#D0B48E" backcolor="#9DB1B8" uuid="4cf9936f-583e-47be-ba10-7b853d76e8bb"/>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="2" y="0" width="197" height="13" forecolor="#FFFFFF" uuid="e898daf8-a8ea-4c90-a867-5eb4256c43ad"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="410" y="0" width="80" height="12" forecolor="#FFFFFF" uuid="13933be1-e178-4ec9-9fe0-dfc994dae6be"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="511" y="0" width="40" height="12" forecolor="#FFFFFF" uuid="54fe152c-1d3b-4fe0-8eca-69232e934568"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

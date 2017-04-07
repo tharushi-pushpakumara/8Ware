@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="agreement" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8ef253f0-133d-47a6-9ef7-12788d0bf2c0">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[select * from agreement]]>
+	</queryString>
+	<field name="agreementId" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="type" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="lastRenewDate" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="expiryDate" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="clientIdFkk" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="7e6aeb92-ab58-49f3-878c-00788d65547a" x="200" y="25" width="164" height="20" forecolor="#003399"/>
+				<textElement textAlignment="Center">
+					<font fontName="Consolas" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Agreement Report]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="cc202c39-1d1f-4bfa-b823-7f7dc1d1a18c" x="0" y="68" width="555" height="1" forecolor="#669900"/>
+			</line>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="08e1ae63-1fc7-4022-a869-5fd8c2e00103" x="0" y="0" width="111" height="20"/>
+				<textElement/>
+				<text><![CDATA[agreementId]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="e33c8f37-2da0-4fa6-a83e-5fdf6137b948" x="111" y="0" width="111" height="20"/>
+				<textElement/>
+				<text><![CDATA[type]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="aa155e1c-df01-4cc5-b1ba-864ffa06e4ef" x="222" y="0" width="111" height="20"/>
+				<textElement/>
+				<text><![CDATA[lastRenewDate]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="e62bff58-7848-4766-aa8a-4991c38b9552" x="333" y="0" width="111" height="20"/>
+				<textElement/>
+				<text><![CDATA[expiryDate]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="08199eec-0224-4b32-8aec-398d584bae49" x="444" y="0" width="111" height="20"/>
+				<textElement/>
+				<text><![CDATA[clientIdFkk]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement uuid="c1be5fa0-c4e8-4fe3-af5a-ac65d26c3aec" x="0" y="0" width="111" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{agreementId}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="40ee050a-2e1e-4880-8ba2-99842aaa69e0" x="111" y="0" width="111" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{type}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="07577989-47d3-4360-807c-dae1f7466031" x="222" y="0" width="111" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{lastRenewDate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="2eb8c9a6-fb8b-4ec4-8a8f-7acfdf74bfa9" x="333" y="0" width="111" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{expiryDate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="4ac04830-6117-48a9-a6d7-4be8483e83eb" x="444" y="0" width="111" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{clientIdFkk}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

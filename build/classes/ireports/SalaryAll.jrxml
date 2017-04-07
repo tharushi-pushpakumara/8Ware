@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SalaryAll" language="groovy" pageWidth="1320" pageHeight="842" columnWidth="1280" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="cf99240d-d20e-44f4-a46e-910b8b35c374">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="461"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[select * from salary]]>
+	</queryString>
+	<field name="SID" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="emp_id" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="basic" class="java.lang.Float">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="monthly_deduction" class="java.lang.Float">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="loan_deduction" class="java.lang.Float">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="increments" class="java.lang.Float">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="net_salary" class="java.lang.Float">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="commissions" class="java.lang.Float">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="date" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="month" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="year" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="d4a0cff2-673f-4c9f-82b8-0dfd2e2f11df" x="274" y="28" width="377" height="51" forecolor="#000099"/>
+				<textElement textAlignment="Center">
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Salary Details of All Employees]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="5114f158-1d52-4a40-aa1c-2ade52d9c149" x="0" y="0" width="78" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="0770dc65-6685-42bc-b1ad-429c655eb9ab" x="78" y="0" width="117" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[emp_id]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="103dadc1-ca74-439f-a0d2-f0fff4753340" x="195" y="0" width="116" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[basic]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="088c8df4-84cf-48f5-b7e9-7fc8a17f58aa" x="311" y="0" width="160" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[monthly_deduction]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="ec8ba5df-1e7c-4f9a-ab7d-bc9a5964e170" x="471" y="0" width="161" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[loan_deduction]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="d101e337-0eec-42d8-9d05-932adfd7a3b1" x="632" y="0" width="120" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[increments]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="3a369b5f-65b8-4a56-b03a-05451592dfbf" x="752" y="0" width="137" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[net_salary]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="3f6d86d5-6ddd-45c5-b3dd-661735a8ee10" x="889" y="0" width="134" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[commissions]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="9350bb51-ad56-48cf-a648-bea5a7ec8f1b" x="1023" y="0" width="99" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="2bc93eae-695c-4ecb-b6f1-a9b26409a3cf" x="1122" y="0" width="83" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[month]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="62b4b73d-f26a-44b7-a439-84b1a0368e0e" x="1205" y="0" width="85" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[year]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement uuid="f3cae568-287c-4bde-9e7a-71842f2de9ec" x="0" y="0" width="78" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SID}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="2b5031dd-f63b-44e6-9f08-5ad0b2861cb8" x="78" y="0" width="117" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{emp_id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="dd7d81b1-02a3-403e-9cb2-9d4cb31cf510" x="195" y="0" width="116" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{basic}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="4ddaaa90-3d73-4bd1-aabc-520dafdeb1df" x="311" y="0" width="160" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{monthly_deduction}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="010e7a76-2da2-4530-b3ca-b16bce30d74b" x="471" y="0" width="161" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{loan_deduction}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="d3a51270-f3b6-42f7-8e27-ab8a28acfb67" x="632" y="0" width="120" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{increments}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="eb0a3f4d-482f-48b6-b304-6906361bf029" x="752" y="0" width="137" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{net_salary}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="4cb77b5e-7b8c-4f8a-920c-12cf34a6f670" x="889" y="0" width="134" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{commissions}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="7124d651-7677-4e12-b2c2-6d250a29d98c" x="1023" y="0" width="99" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{date}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="7f4787c1-8d95-45fb-a2ca-f52a988a4834" x="1122" y="0" width="83" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{month}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="7efada3f-6139-4a70-82f2-0bdaeb625adf" x="1205" y="0" width="85" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{year}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

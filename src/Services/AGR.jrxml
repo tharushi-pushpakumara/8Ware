@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="AGR" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0a996205-9649-4486-8959-e3476ccbfc66">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="7"/>
+	<queryString>
+		<![CDATA[SELECT * FROM agreement]]>
+	</queryString>
+	<field name="agreementId" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="type" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="lastRenewDate" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="expiryDate" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="clientIdFkk" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="37" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="dc067c8e-8798-4c0b-84ae-0cb93c28c7b5" x="193" y="4" width="175" height="23" forecolor="#000099"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial Black" size="15"/>
+				</textElement>
+				<text><![CDATA[Agreement Report]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<line>
+				<reportElement uuid="77c44570-e162-4563-9267-f6301e3f5c45" x="0" y="15" width="555" height="1" forecolor="#009933"/>
+				<graphicElement>
+					<pen lineStyle="Double"/>
+				</graphicElement>
+			</line>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="27" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="d87dd3fd-95c1-4591-9210-ed640c5921d4" x="0" y="0" width="111" height="20"/>
+				<textElement>
+					<font fontName="Consolas" size="12"/>
+				</textElement>
+				<text><![CDATA[Agreement Id]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="6c480952-903d-46b3-80b3-facfe03b83fa" x="137" y="0" width="111" height="20"/>
+				<textElement>
+					<font fontName="Consolas"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{agreementId}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="37e96d0b-a699-4d1a-a057-6c04c71ccadc" x="122" y="0" width="15" height="20"/>
+				<textElement/>
+				<text><![CDATA[:]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="165" splitType="Stretch">
+			<textField>
+				<reportElement uuid="7ec78c16-49b4-4db4-9f36-c68216cf25a4" x="137" y="20" width="111" height="20"/>
+				<textElement>
+					<font fontName="Consolas"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{type}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="0e71d273-5a3d-473b-8fc5-bde5928c91ad" x="137" y="61" width="111" height="20"/>
+				<textElement>
+					<font fontName="Consolas"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{lastRenewDate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="68ba0479-89a2-40e0-9ee5-effbff3115fb" x="137" y="105" width="111" height="20"/>
+				<textElement>
+					<font fontName="Consolas"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{expiryDate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="a001ca04-aa25-47f4-940c-1ffd42b44b10" x="137" y="145" width="111" height="20"/>
+				<textElement>
+					<font fontName="Consolas"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{clientIdFkk}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="1cb2c361-1b11-41a7-97ec-8a51426268b3" x="0" y="20" width="111" height="20"/>
+				<textElement>
+					<font fontName="Consolas" size="12"/>
+				</textElement>
+				<text><![CDATA[Type]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="0e7c84a2-c317-47b6-ad8f-7eecc5c90907" x="0" y="61" width="111" height="20"/>
+				<textElement>
+					<font fontName="Consolas" size="12"/>
+				</textElement>
+				<text><![CDATA[Last Renew Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="90646de4-434f-48c4-b024-3149d9a6dec8" x="0" y="105" width="111" height="20"/>
+				<textElement>
+					<font fontName="Consolas" size="12"/>
+				</textElement>
+				<text><![CDATA[Expiry Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="97599d2f-0d73-4a54-b14c-8b278e27afd8" x="0" y="145" width="111" height="20"/>
+				<textElement>
+					<font fontName="Consolas" size="12"/>
+				</textElement>
+				<text><![CDATA[Cient Id]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="527d4b79-b9f6-4454-8ada-8943764d63c8" x="122" y="20" width="15" height="20"/>
+				<textElement/>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="896f7df2-3402-4273-9214-8ef2323b384a" x="122" y="61" width="15" height="20"/>
+				<textElement/>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="6e13fb2b-a304-4683-84a5-58810eaddb63" x="122" y="105" width="15" height="20"/>
+				<textElement/>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="db758afb-04fd-4bbb-a615-2c8e3cfb9659" x="122" y="145" width="15" height="20"/>
+				<textElement/>
+				<text><![CDATA[:]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="7c062a61-b14b-404d-ae46-7d0bcf46e3e2">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     invoice.`invoice_number` AS Invoice_number,
+     invoice.`remarks` AS Remarks,
+     invoice.`date` AS Date,
+     invoice.`grandTotal` AS GrandTotal
+FROM
+     `invoice` invoice]]>
+	</queryString>
+	<field name="Invoice_number" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Remarks" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Date" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="GrandTotal" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<variable name="SUM" class="java.math.BigDecimal" resetType="Column" calculation="Sum">
+		<variableExpression><![CDATA[$F{GrandTotal}]]></variableExpression>
+	</variable>
+	<group name="Invoice_number">
+		<groupExpression><![CDATA[$F{Invoice_number}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="97" splitType="Stretch">
+			<image>
+				<reportElement x="0" y="0" width="211" height="90" uuid="d00d10af-d9e2-4da5-b948-fbf24f8abe65"/>
+				<imageExpression><![CDATA["C:\\Users\\Tharushi\\Documents\\NetBeansProjects\\8Ware\\src\\pictures\\rect.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="227" y="51" width="317" height="39" uuid="a18ac228-3d31-43f8-8d9d-48cb0d0adbb1"/>
+				<textElement textAlignment="Center">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Yearly Income for the current year]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<line>
+				<reportElement x="10" y="0" width="534" height="1" uuid="e56e1678-72c5-45bd-a734-14e28270e90b"/>
+			</line>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement x="200" y="2" width="100" height="20" uuid="716e8238-fbe8-40de-9337-14c84e7219ba"/>
+				<text><![CDATA[Remarks]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="2" width="100" height="20" uuid="dd6f12f8-6b9c-453b-8b7d-671d3ca9fe69"/>
+				<text><![CDATA[Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="419" y="0" width="100" height="20" uuid="963efbb8-bc8d-4fc7-b563-f77d9cd4f0fb"/>
+				<text><![CDATA[GrandTotal]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="2" width="100" height="20" uuid="14ebae83-4c28-4e0d-9bb1-e314719022c5"/>
+				<text><![CDATA[Invoice_number]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="58" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="12" width="100" height="20" uuid="ee4a2f3f-bea9-40fc-80d6-4c9da276692d"/>
+				<textFieldExpression><![CDATA[$F{Invoice_number}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="200" y="12" width="100" height="20" uuid="670e5075-48b4-4556-872c-52ee99ebc877"/>
+				<textFieldExpression><![CDATA[$F{Remarks}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="12" width="100" height="20" uuid="72a5b95d-c54d-4a45-8b62-670ea48cf2e2"/>
+				<textFieldExpression><![CDATA[$F{Date}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="419" y="12" width="100" height="20" uuid="8cf039a8-ecd5-4187-be22-48d7861b910e"/>
+				<textFieldExpression><![CDATA[$F{GrandTotal}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<textField pattern="¤ #,##0.00" isBlankWhenNull="true">
+				<reportElement x="419" y="0" width="100" height="20" uuid="a64d10b7-3a82-4359-bc52-3b733f55a6eb"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{SUM}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="20" uuid="f2dd6945-17df-451b-a7ad-ef289a597a50"/>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

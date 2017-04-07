@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="agreementType" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c856b006-3a7b-4e3d-a61c-556a0f06633f">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="style1">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{agreement_expiryDate}<=new java.util.Date()]]></conditionExpression>
+			<style forecolor="#FF0000"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{agreement_expiryDate}>=new java.util.Date()]]></conditionExpression>
+			<style forecolor="#00FF00"/>
+		</conditionalStyle>
+	</style>
+	<subDataset name="New Dataset 1" uuid="bd55db79-b925-4dd7-9d58-d2b4e6ed41b9">
+		<queryString language="SQL">
+			<![CDATA[SELECT
+     agreement.`agreementId` AS agreement_agreementId,
+     agreement.`type` AS agreement_type,
+     agreement.`lastRenewDate` AS agreement_lastRenewDate,
+     agreement.`expiryDate` AS agreement_expiryDate,
+     agreement.`clientIdFkk` AS agreement_clientIdFkk,
+     agreement_assest.`assest` AS agreement_assest_assest,
+     agreement_assest.`agreementIdFk` AS agreement_assest_agreementIdFk
+FROM
+     `agreement` agreement INNER JOIN `agreement_assest` agreement_assest ON agreement.`agreementId` = agreement_assest.`agreementIdFk`]]>
+		</queryString>
+	</subDataset>
+	<subDataset name="dataset1" uuid="721cddb3-2377-4a14-9e1a-9949a4de8de0"/>
+	<parameter name="agreementType" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT DISTINCT
+     agreement.`agreementId` AS agreement_agreementId,
+     agreement.`type` AS agreement_type,
+     agreement.`lastRenewDate` AS agreement_lastRenewDate,
+     agreement.`expiryDate` AS agreement_expiryDate,
+     agreement.`clientIdFkk` AS agreement_clientIdFkk,
+     agreement_assest.`assest` AS agreement_assest_assest
+FROM
+     `agreement` agreement INNER JOIN `agreement_assest` agreement_assest ON agreement.`agreementId` = agreement_assest.`agreementIdFk`
+WHERE
+     agreement.`type` = $P{agreementType}]]>
+	</queryString>
+	<field name="agreement_agreementId" class="java.lang.String"/>
+	<field name="agreement_type" class="java.lang.String"/>
+	<field name="agreement_lastRenewDate" class="java.sql.Timestamp"/>
+	<field name="agreement_expiryDate" class="java.sql.Timestamp"/>
+	<field name="agreement_clientIdFkk" class="java.lang.String"/>
+	<field name="agreement_assest_assest" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="132" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="100" width="553" height="32" forecolor="#000000" backcolor="#CC0000" uuid="a19c9367-26f1-4e40-a472-68d54a1a39e3"/>
+				<textField pattern="MMMMM dd, yyyy">
+					<reportElement x="395" y="12" width="145" height="20" uuid="6f0762af-92d1-45ec-8d2f-f1deaa892ce6"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+			<staticText>
+				<reportElement x="243" y="22" width="285" height="45" uuid="a2d0ddd1-d661-4691-aac1-b02ca7880154"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="24" isBold="true" isItalic="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Agreement by Type]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="300" y="47" width="240" height="20" forecolor="#FF0000" uuid="24a90f8c-9210-42de-a9d2-fd580f8c0743"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Note : Expired Agreements are on Red Color..]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="50" splitType="Stretch">
+			<staticText>
+				<reportElement style="Column header" x="2" y="8" width="86" height="18" forecolor="#000000" uuid="5e024cb5-0655-46d9-9dec-4c8b64527883"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[AgreementID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="90" y="8" width="49" height="18" forecolor="#000000" uuid="fcec3ca9-2a53-4154-a82c-c9c3483835f0"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[type]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="157" y="8" width="107" height="18" forecolor="#000000" uuid="a4b08dcb-541a-4103-8b5a-0f924b708426"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[lastRenewDate]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="395" y="8" width="61" height="18" forecolor="#000000" uuid="e1704055-cca5-4eb6-8099-1d9192d4b4ab"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[clientID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="461" y="8" width="92" height="18" forecolor="#000000" uuid="640482bd-a607-45e2-8486-d8c5e0cf48a7"/>
+				<textElement>
+					<font isBold="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[AssestId]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="276" y="8" width="107" height="18" forecolor="#000000" uuid="2a52494e-509c-4867-8452-75d5c7a97655"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[expiryDate]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="50">
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Detail" positionType="Float" x="2" y="1" width="77" height="18" uuid="ab7e84b1-e0c9-4554-b85c-e1a0de581088"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{agreement_agreementId}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Detail" positionType="Float" x="88" y="1" width="51" height="18" uuid="9651e399-cc43-4f0e-8a2d-2cc9f8a1d8c1"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{agreement_type}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Detail" positionType="Float" x="157" y="1" width="105" height="18" uuid="e473acf8-70d5-4fdf-85a4-8c0b529fa9db"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{agreement_lastRenewDate}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="style1" positionType="Float" x="276" y="1" width="107" height="18" uuid="062be27d-658d-47a6-8526-b647df7ac01e"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{agreement_expiryDate}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Detail" positionType="Float" x="395" y="1" width="50" height="18" uuid="bbe83b82-0dd7-4785-849e-bcdefbeead5a"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{agreement_clientIdFkk}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Detail" positionType="Float" x="459" y="1" width="81" height="18" uuid="2b5dd279-6e5c-4f74-b300-2de3ed8be9c7"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{agreement_assest_assest}]]></textFieldExpression>
+			</textField>
+			<frame>
+				<reportElement x="390" y="29" width="100" height="20" uuid="a0396065-4a80-4241-ac8c-0d9744521118"/>
+				<box>
+					<pen lineColor="#3333FF"/>
+					<topPen lineColor="#3333FF"/>
+					<leftPen lineColor="#3333FF"/>
+					<bottomPen lineColor="#3333FF"/>
+					<rightPen lineColor="#3333FF"/>
+				</box>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="26" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="6b26a33a-f479-4deb-879f-1a95718e202e"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="1" width="555" height="24" forecolor="#D0B48E" backcolor="#000000" uuid="cd24518e-886b-4694-b7a5-1d2841270df7"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="513" y="0" width="40" height="20" forecolor="#FFFFFF" uuid="6073b27f-3dc8-435e-b2ca-2517dde807c3"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="433" y="0" width="80" height="20" forecolor="#FFFFFF" uuid="053a00a1-c1aa-405f-8cc3-e401927f3b9b"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="2" y="1" width="197" height="20" forecolor="#FFFFFF" uuid="356d939a-e47a-463d-bb76-26b1385cee04"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

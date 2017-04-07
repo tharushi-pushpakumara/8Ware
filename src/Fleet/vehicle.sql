@@ -1,0 +1,2 @@
+SELECT `vehicle`.vehicleID,`vehicle`.type,`vehicle`.model,`vehicle`.chassicNo,`vehicle`.colour,`vehicle`.transmissionType,`vehicle`.fuelType,`vehicle`.GPS,`vehicle`.RegNum,DATE_FORMAT(`vehicle`.RegDate,'%Y-%m-%d'),`vehicle`.InsNum,`vehicle`.Ins_Company,DATE_FORMAT(`vehicle`.InsDate,'%Y-%m-%d')
+ FROM vehicle

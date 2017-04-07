@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4f1c58c8-5442-41d0-8ce5-32732dd89c19">
+	<property name="template.type" value="columnar"/>
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#000000" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     person.`Per_ID` AS person_Per_ID,
+     person.`P_name` AS person_P_name,
+     person.`P_phone` AS person_P_phone,
+     person.`P_email` AS person_P_email,
+     person.`P_address` AS person_P_address,
+     person.`Interested_Items` AS person_Interested_Items
+FROM
+     `person` person]]>
+	</queryString>
+	<field name="person_Per_ID" class="java.lang.String"/>
+	<field name="person_P_name" class="java.lang.String"/>
+	<field name="person_P_phone" class="java.lang.String"/>
+	<field name="person_P_email" class="java.lang.String"/>
+	<field name="person_P_address" class="java.lang.String"/>
+	<field name="person_Interested_Items" class="java.lang.String"/>
+	<group name="person_Per_ID">
+		<groupExpression><![CDATA[$F{person_Per_ID}]]></groupExpression>
+		<groupHeader>
+			<band height="31">
+				<staticText>
+					<reportElement x="11" y="3" width="100" height="20" uuid="b28ea123-807b-4957-8452-c76dd0965b7d"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<text><![CDATA[Quotation for.]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="79">
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement style="Detail" positionType="Float" x="111" y="38" width="338" height="18" uuid="36d977ec-e752-45f6-a8f0-a05edd729431"/>
+					<textElement>
+						<font size="14" isBold="true" pdfFontName="Times-Bold"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{person_Interested_Items}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="132" splitType="Stretch">
+			<staticText>
+				<reportElement x="394" y="22" width="159" height="91" uuid="6bb853aa-9ca9-4c06-ba1a-531d8a3742a1"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Ebase Asia PVT LTD,
+27/1A,
+Hotel Road, 
+Mount Lavinia,
+Sri Lanka.
+Tel : 0117393200
+Email : info@ebaseasia.com]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="121" width="553" height="1" uuid="24c50f6b-6a5e-482a-b473-e431c1bd1944"/>
+			</line>
+			<image>
+				<reportElement x="11" y="22" width="333" height="64" uuid="24452ccf-3349-42b3-abce-0f8cf4c61dbd"/>
+				<imageExpression><![CDATA["C:\\Users\\Tharushi\\Desktop\\Final\\ItpProject\\ebase_home_03.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="2" y="90" width="551" height="1" uuid="ccfefbe9-ff28-47ca-8064-730766021a1e"/>
+			</line>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="111" y="11" width="338" height="18" uuid="ea4d6009-0028-4058-8118-74a635f83820"/>
+				<textElement>
+					<font size="14" isBold="true" pdfFontName="Times-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{person_P_name}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="111" y="31" width="338" height="18" uuid="8b03384f-8c91-4589-9b42-803b5ebc6690"/>
+				<textElement>
+					<font size="14" isBold="true" pdfFontName="Times-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{person_P_phone}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="111" y="49" width="338" height="18" uuid="e5ee9a40-96ae-4daf-9f2f-02a125676937"/>
+				<textElement>
+					<font size="14" isBold="true" pdfFontName="Times-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{person_P_email}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="111" y="67" width="338" height="18" uuid="e17e4b7d-6f06-465d-aba2-5a5cf30a6dec"/>
+				<textElement>
+					<font size="14" isBold="true" pdfFontName="Times-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{person_P_address}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="11" y="105" width="100" height="20" uuid="4b87e867-ed4c-424c-847e-dc2b3cbb8625"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Quoted items.]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="30" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="90bb1f44-59b6-4248-88ca-29a6d6a7cac8"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="85" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="72" width="555" height="13" forecolor="#D0B48E" backcolor="#9DB1B8" uuid="a5df5d85-5650-407e-965f-50dc246a715a"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="511" y="0" width="40" height="13" forecolor="#FFFFFF" uuid="934363b7-58e6-4ae8-9290-f14e5fad71eb"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="423" y="0" width="80" height="13" forecolor="#FFFFFF" uuid="b7b94f08-9cc1-42e0-bdad-1e8449d381ff"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="2" y="0" width="197" height="13" forecolor="#FFFFFF" uuid="8b66a874-434b-497e-9996-f019d365f97f"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+			<staticText>
+				<reportElement x="199" y="52" width="200" height="20" uuid="5f034f00-c512-45ba-962c-2ce5c450a298"/>
+				<textElement textAlignment="Justified"/>
+				<text><![CDATA[© 2010 eBases Asia. All Rights Reserved.]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

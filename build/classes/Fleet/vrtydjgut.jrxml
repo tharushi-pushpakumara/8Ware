@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="10fe1727-7a55-4334-8607-825d72594c14">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="vid" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     vehicle.`vehicleID` AS vehicle_vehicleID,
+     vehicle.`type` AS vehicle_type,
+     vehicle.`model` AS vehicle_model,
+     vehicle.`chassicNo` AS vehicle_chassicNo,
+     vehicle.`EngineCapacity` AS vehicle_EngineCapacity,
+     vehicle.`colour` AS vehicle_colour,
+     vehicle.`transmissionType` AS vehicle_transmissionType,
+     vehicle.`fuelType` AS vehicle_fuelType,
+     vehicle.`status` AS vehicle_status,
+     vehicle.`GPS` AS vehicle_GPS,
+     vehicle.`RegNum` AS vehicle_RegNum,
+     vehicle.`RegDate` AS vehicle_RegDate,
+     vehicle.`InsNum` AS vehicle_InsNum,
+     vehicle.`Ins_Company` AS vehicle_Ins_Company,
+     vehicle.`InsDate` AS vehicle_InsDate,
+     vehicle.`PrifPic` AS vehicle_PrifPic,
+     vehicle.`mileage` AS vehicle_mileage
+FROM
+     `vehicle` vehicle
+WHERE vehicle.`vehicleID` = $P{vid}]]>
+	</queryString>
+	<field name="vehicle_vehicleID" class="java.lang.String"/>
+	<field name="vehicle_type" class="java.lang.String"/>
+	<field name="vehicle_model" class="java.lang.String"/>
+	<field name="vehicle_chassicNo" class="java.lang.String"/>
+	<field name="vehicle_EngineCapacity" class="java.lang.String"/>
+	<field name="vehicle_colour" class="java.lang.String"/>
+	<field name="vehicle_transmissionType" class="java.lang.String"/>
+	<field name="vehicle_fuelType" class="java.lang.String"/>
+	<field name="vehicle_status" class="java.lang.String"/>
+	<field name="vehicle_GPS" class="java.lang.String"/>
+	<field name="vehicle_RegNum" class="java.lang.String"/>
+	<field name="vehicle_RegDate" class="java.sql.Date"/>
+	<field name="vehicle_InsNum" class="java.lang.String"/>
+	<field name="vehicle_Ins_Company" class="java.lang.String"/>
+	<field name="vehicle_InsDate" class="java.sql.Date"/>
+	<field name="vehicle_PrifPic" class="java.lang.Object"/>
+	<field name="vehicle_mileage" class="java.lang.Float"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
